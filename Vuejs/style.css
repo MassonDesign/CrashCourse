@@ -1,0 +1,20 @@
+.male {
+    border-color: steelblue;
+    background-color: steelblue;
+}
+
+.female {
+    border-color: pink;
+    background-color: pink;
+    color: #333;
+}
+
+button {
+    cursor: pointer;
+    display: inline-block;
+    background: #333;
+    color: white;
+    font-size: 18px;
+    border: 0;
+    padding: 1rem 1.5rem;
+}
