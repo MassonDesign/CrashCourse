@@ -1,7 +1,23 @@
+import { useEffect, useState } from "react";
+import Wordle from "./components/Wordle";
+
 function App() {
+	const [solution, setSolution] = useState(null);
+
+	useEffect(() => {
+		fetch("http://localhost:3001/solutions")
+			.then((res) => res.json())
+			.then((json) => {
+				// render random integer from 0 & 14
+				const randomSolution = json[Math.floor(Math.random() * json.length)];
+				setSolution(randomSolution.word);
+			});
+	}, [setSolution]);
+
 	return (
 		<div className='App'>
 			<h1>Wordle (Lingo)</h1>
+			{solution && <Wordle solution={solution} />}
 		</div>
 	);
 }
@@ -47,3 +63,7 @@ game process:
       -- modal to say 'unlucky'
 
 */
+// solution data :
+// 1 - 3rd party api
+// 2- own database (mongodb)
+// 3- json file
